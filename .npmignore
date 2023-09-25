@@ -8,3 +8,5 @@ yarn.lock
 __test__
 .swcrc
 src
+tsconfig.json
+*.log
