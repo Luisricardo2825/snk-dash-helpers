@@ -1,5 +1,3 @@
-"use strict";
-Object.defineProperty(exports, "__esModule", { value: true });
 function ArrayToObject(param) {
     const returnList = [];
     try {
@@ -24,4 +22,4 @@ function SetFields(fields, rows) {
     }
     return object;
 }
-exports.default = ArrayToObject;
+export default ArrayToObject;

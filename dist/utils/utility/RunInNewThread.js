@@ -1,7 +1,4 @@
-"use strict";
-Object.defineProperty(exports, "__esModule", { value: true });
-exports.runInNewThread = void 0;
-async function runInNewThread(code, data) {
+export default async function runInNewThread(code, data) {
     return new Promise((resolve, reject) => {
         let func = `postMessage((${code})(${JSON.stringify(data)}))`;
         // eslint-disable-next-line @typescript-eslint/no-empty-function
@@ -26,4 +23,3 @@ async function runInNewThread(code, data) {
         };
     });
 }
-exports.runInNewThread = runInNewThread;

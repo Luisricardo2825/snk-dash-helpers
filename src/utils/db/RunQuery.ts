@@ -1,8 +1,8 @@
-import { SankhyaRet } from "../..";
+import { SankhyaRet } from "../../index";
 import CallService from "../../api/CallService";
 import ArrayToObject from "./ArrayToObject";
 
-export const RunQuery = async <T>(qry: string) => {
+const RunQuery = async <T>(qry: string) => {
   const res = await CallService<SankhyaRet>(
     `/mge/service.sbr?serviceName=DbExplorerSP.executeQuery&outputType=json`,
     {
@@ -22,3 +22,5 @@ export const RunQuery = async <T>(qry: string) => {
   }
   throw new Error(message);
 };
+
+export default RunQuery;

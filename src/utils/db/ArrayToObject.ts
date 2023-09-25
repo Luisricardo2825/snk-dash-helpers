@@ -1,4 +1,4 @@
-import { FieldsMetadaum, SankhyaRet, row } from "../..";
+import { FieldsMetadaum, SankhyaRet, row } from "../../index";
 
 export interface fields {
   [x: string]: string | number | unknown;

@@ -1,4 +1,4 @@
-import { SankhyaRet } from "../..";
+import { SankhyaRet } from "../../index";
 export interface fields {
     [x: string]: string | number | unknown;
 }

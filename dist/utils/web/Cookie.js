@@ -1,6 +1,4 @@
-"use strict";
-Object.defineProperty(exports, "__esModule", { value: true });
-class CookieManager {
+export default class CookieManager {
     cookies = {};
     constructor() {
         this.loadCookies();
@@ -68,4 +66,3 @@ class CookieManager {
         return this.getKeys().length;
     }
 }
-exports.default = CookieManager;

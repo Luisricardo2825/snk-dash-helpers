@@ -1,6 +1,4 @@
-"use strict";
-Object.defineProperty(exports, "__esModule", { value: true });
-function inIframe() {
+export default function inIframe() {
     try {
         return window.self !== window.top;
     }
@@ -8,4 +6,3 @@ function inIframe() {
         return true;
     }
 }
-exports.default = inIframe;

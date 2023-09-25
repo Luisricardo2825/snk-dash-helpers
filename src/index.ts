@@ -1,5 +1,18 @@
-export * from "./api/CallService";
-
+import CallService from "./api/CallService";
+export * from "./utils/layout/DashUtils";
+import RunInNewThread from "./utils/utility/RunInNewThread";
+import RunQuery from "./utils/db/RunQuery";
+import inIframe from "./utils/web/CheckIframe";
+import CookieManager from "./utils/web/Cookie";
+const __IP_SERVER__ = (window as customWindowType).__IP_SERVER__;
+export {
+  CallService,
+  RunInNewThread,
+  RunQuery,
+  inIframe,
+  CookieManager,
+  __IP_SERVER__,
+};
 export interface CustomRequestInit extends Omit<RequestInit, "body"> {
   method?: string;
   body?: string | object | BodyInit | null | undefined;
@@ -24,6 +37,8 @@ export type globalThisType = typeof globalThis;
 export type customWindowType = globalThisType &
   windowType & {
     executeQueryAsync: Window["executeQuery"];
+    /**IP do servidor atual */
+    __IP_SERVER__: string | undefined;
   };
 
 export interface SankhyaApiGenericResponse<T> {
@@ -51,8 +66,6 @@ export interface Window {
   /** Parametros recebidos pela janela de parametros sankhya */
   Params?: NonNullable<{ [x: string]: unknown }>;
 }
-/**IP do servidor atual */
-export declare const __IP_SERVER__: string | undefined;
 
 export interface SankhyaRet {
   serviceName: string;

@@ -1,7 +1,7 @@
 import inIframe from "../utils/web/CheckIframe";
 import CookieManager from "../utils/web/Cookie";
-import { runInNewThread } from "../utils/utility/RunInNewThread";
-import { CallServiceArguments, CallServiceRet, CustomRequestInit, __IP_SERVER__ } from "..";
+import runInNewThread from "../utils/utility/RunInNewThread";
+import { CallServiceArguments, CallServiceRet, CustomRequestInit, __IP_SERVER__ } from "../index";
 
 
 

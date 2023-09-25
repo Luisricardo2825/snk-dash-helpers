@@ -1,22 +1,17 @@
-"use strict";
-var __importDefault = (this && this.__importDefault) || function (mod) {
-    return (mod && mod.__esModule) ? mod : { "default": mod };
-};
-Object.defineProperty(exports, "__esModule", { value: true });
-const CheckIframe_1 = __importDefault(require("../utils/web/CheckIframe"));
-const Cookie_1 = __importDefault(require("../utils/web/Cookie"));
-const RunInNewThread_1 = require("../utils/utility/RunInNewThread");
-const __1 = require("..");
-async function CallService(input, init) {
+import inIframe from "../utils/web/CheckIframe";
+import CookieManager from "../utils/web/Cookie";
+import runInNewThread from "../utils/utility/RunInNewThread";
+import { __IP_SERVER__ } from "../index";
+export default async function CallService(input, init) {
     let retObj = {
         ok: false,
         message: undefined,
         data: undefined,
     };
-    const isIframe = (0, CheckIframe_1.default)();
+    const isIframe = inIframe();
     const defaultHeaders = new Headers();
     defaultHeaders.append("Content-Type", "application/json");
-    const localIP = __1.__IP_SERVER__;
+    const localIP = __IP_SERVER__;
     if (!isIframe) {
         const body = JSON.stringify({
             body: init?.body,
@@ -50,12 +45,11 @@ async function CallService(input, init) {
     }
     return retObj;
 }
-exports.default = CallService;
 async function CallServiceSankhya(input, init) {
     const baseUrl = window.location.origin;
-    const cookieManeger = new Cookie_1.default();
+    const cookieManeger = new CookieManager();
     const mgeSession = cookieManeger.get("JSESSIONID");
-    const data = await (0, RunInNewThread_1.runInNewThread)(async (args) => {
+    const data = await runInNewThread(async (args) => {
         const CallServiceWorker = async ({ input, baseUrl, mgeSession, init, }) => {
             const retObj = {
                 ok: false,

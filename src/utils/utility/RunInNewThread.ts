@@ -1,4 +1,4 @@
-export async function runInNewThread<T, Y = NonNullable<unknown>>(
+export default async function runInNewThread<T, Y = NonNullable<unknown>>(
   code: (data: T) => Y | Promise<Y> | void,
   data?: unknown[] | object
 ) {
